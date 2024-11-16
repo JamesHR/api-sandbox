@@ -18,9 +18,10 @@ async function bootstrap() {
 
   // Configurar Swagger
   const config = new DocumentBuilder()
-    .setTitle('API de Usuarios')
-    .setDescription('Documentación de la API para gestionar usuarios')
+    .setTitle('API Sandbox')
+    .setDescription('Documentación de la API Sandbox para desarrollo de proyectos')
     .setVersion('1.0')
+    .addServer('https://api-sandbox-f3ei.onrender.com')
     .addBearerAuth()
     .build();
 
