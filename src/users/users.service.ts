@@ -45,6 +45,9 @@ export class UsersService {
         if(record && record._id.toString() !== id)
             throw new ConflictException("Este email ya se encuentra registrado");
 
+        const hashedPassword = await bcrypt.hash(updateUserDto.password, 10);
+        updateUserDto = {...updateUserDto, password: hashedPassword};
+
         const updatedUser = await this.userModel
             .findByIdAndUpdate(id, updateUserDto, { new: true })
             .exec();
